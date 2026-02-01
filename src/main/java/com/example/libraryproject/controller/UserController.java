@@ -1,0 +1,24 @@
+package com.example.libraryproject.controller;
+
+import com.example.libraryproject.entity.User;
+import com.example.libraryproject.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/users")
+public class UserController {
+
+    @Autowired
+    private UserService userService;
+
+    @PostMapping("/register")
+    public User regiserUser(@RequestBody User user) {
+        return userService.register(user);
+    }
+
+    @GetMapping("/register")
+    public String getCurrentUser() {
+        return "OK";
+    }
+}
